@@ -21,32 +21,51 @@ window.onload = function () {
   }
 
   getJSON('https://spreadsheets.google.com/feeds/list/1SSrh-XwjZDJ0I1LJhXmwSR5jXvoyQWqDCmuXdfbJnFg/od6/public/values?alt=json', function (err, data) {
-    console.log(data);
-    if (err !== null) {
-      console.log('Error: ' + err);
-    }
-    else {
-      data = data['feed']['entry'];
-      console.log(data);
-      document.querySelector('.shop-field').innerHTML = showGoods(data);
-    }
+		//  console.log(data);
+		if (err !== null) {
+			console.log('Error: ' + err);
+		}
+		else {
+			data = data['feed']['entry'];
+			// console.log(data);
+			let selGr = document.querySelector('.selectGroup').value;
+			document.querySelector('.shop-field').innerHTML = showGoods(data,selGr);
+			document.querySelector('.goSelectGroup').onclick = function(e){
+				document.querySelector('.shop-field').innerHTML = '';
+				console.log('Yes');
+				document.querySelector('.shop-field').innerHTML = showGoods(data,document.querySelector('.selectGroup').value);
+			}
+		}
   });
 
-  function showGoods(data) {
+  function showGoods(data, outSel) {
     let out = '';
     for (var i = 0; i < data.length; i++) {
-      if (data[i]['gsx$show']['$t'] != 0) {
+      if ((data[i]['gsx$show']['$t'] != 0) && (outSel == '')) {
         out += `<div class="col-lg-3 col-md-3 col-sm-6 text-center">`;
         out += `<div class="goods">`;
         out += `<h3>${data[i]['gsx$name']['$t']}</h3>`;
         out += `<div class="imgFoto" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
         out += `<p class="cost">Группа: ${data[i]['gsx$group']['$t']}</p>`;
         out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
-        out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Сайт</button></p>`;
+        out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Работы ученика</button></p>`;
         out += `</div>`;
         out += `</div>`;
       }
+			else if ((outSel == data[i]['gsx$group']['$t']) && (data[i]['gsx$show']['$t'] != 0)) {
+				// console.log('Yes-Yes');
+				out += `<div class="col-lg-3 col-md-3 col-sm-6 text-center">`;
+        out += `<div class="goods">`;
+        out += `<h3>${data[i]['gsx$name']['$t']}</h3>`;
+        out += `<div class="imgFoto" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
+        out += `<p class="cost">Группа: ${data[i]['gsx$group']['$t']}</p>`;
+        out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
+        out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Работы ученика</button></p>`;
+        out += `</div>`;
+        out += `</div>`;
+			}
     }
     return out;
   }
+
 }
