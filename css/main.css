@@ -1,7 +1,6 @@
-
-.imgFoto{
-  width: 128px;
-  height: 128px;
+.imgFoto {
+  max-width: 200px;
+  height: 200px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
