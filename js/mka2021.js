@@ -42,24 +42,24 @@ window.onload = function () {
     let out = '';
     for (var i = 0; i < data.length; i++) {
       if ((data[i]['gsx$show']['$t'] != 0) && (outSel == '')) {
-        out += `<div class="col-lg-3 col-md-3 col-sm-6 text-center">`;
+        out += `<div class="col-lg-2 col-md-3 col-sm-4 text-center card m-2 shadow">`;
         out += `<div class="goods">`;
-        out += `<h3>${data[i]['gsx$name']['$t']}</h3>`;
-        out += `<div class="imgFoto" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
+        out += `<h5 class="mt-3">${data[i]['gsx$name']['$t']}</h5>`;
+				out += `<p>${data[i]['gsx$surname']['$t']}</p>`;
+        out += `<div class="imgFoto img-thumbnail" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
         out += `<p class="cost">Группа: ${data[i]['gsx$group']['$t']}</p>`;
-        out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
         out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Работы ученика</button></p>`;
         out += `</div>`;
         out += `</div>`;
       }
 			else if ((outSel == data[i]['gsx$group']['$t']) && (data[i]['gsx$show']['$t'] != 0)) {
 				// console.log('Yes-Yes');
-				out += `<div class="col-lg-3 col-md-3 col-sm-6 text-center">`;
+				out += `<div class="col-lg-2 col-md-3 col-sm-4 text-center card m-2 shadow">`;
         out += `<div class="goods">`;
-        out += `<h3>${data[i]['gsx$name']['$t']}</h3>`;
-        out += `<div class="imgFoto" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
+        out += `<h5 class="mt-3">${data[i]['gsx$name']['$t']}</h5>`;
+				out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
+        out += `<div class="imgFoto img-thumbnail" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
         out += `<p class="cost">Группа: ${data[i]['gsx$group']['$t']}</p>`;
-        out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
         out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Работы ученика</button></p>`;
         out += `</div>`;
         out += `</div>`;
