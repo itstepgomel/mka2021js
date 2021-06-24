@@ -28,16 +28,24 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <h1 class="text-center">MKA 2020-2021</h1>
-          <input list="selectGroup" class="selectGroup" />
+          <!-- <input list="selectGroup" class="selectGroup" />
           <datalist id="selectGroup">
             <option value="МА42819"></option>
             <option value="МА52819"></option>
             <option value="МБ12017"></option>
             <option value="МБ12818"></option>
             <option value="С2021"></option>
-          </datalist>
+          </datalist> -->
+			 <select size="1" class="selectGroup">
+				<option value="all"  selected>Все ученики</option>
+				<option value="МА42819">группа МА42819</option>
+				<option value="МА52819">группа МА52819</option>
+				<option value="МБ12017">группа МБ12017</option>
+				<option value="МБ12818">группа МБ12818</option>
+				<option value="С2021">группа С2021</option>
+			  </select>
 
-          <button class="goSelectGroup">Показать ТОЛЬКО...</button>
+          <button class="goSelectGroup btn btn-outline-success">Показать...</button>
         </div>
       </div>
       <div class="row shop-field justify-content-center"></div>
