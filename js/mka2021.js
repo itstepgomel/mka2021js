@@ -57,7 +57,7 @@ window.onload = function () {
 				out += `<div class="col-lg-2 col-md-3 col-sm-4 text-center card m-2 shadow">`;
         out += `<div class="goods">`;
         out += `<h5 class="mt-3">${data[i]['gsx$name']['$t']}</h5>`;
-				out += `<p>Фамилия: ${data[i]['gsx$surname']['$t']}</p>`;
+				out += `<p>${data[i]['gsx$surname']['$t']}</p>`;
         out += `<div class="imgFoto img-thumbnail img-fluid" style="background-image: url(${data[i]['gsx$foto']['$t']});"></div>`;
         out += `<p class="cost">Группа: ${data[i]['gsx$group']['$t']}</p>`;
         out += `<p><button type="button" class="btn btn-outline-success" data="${data[i]['gsx$id']['$t']}">Работы ученика</button></p>`;
